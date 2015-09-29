@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
+    <entity name="ToDos" representedClassName="ToDos" syncable="YES">
+        <attribute name="dateEntered" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateUpdated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="toDoCompleteDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="toDoCompleteDone" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="toDoDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toDoDueDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="toDoName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toDoPriority" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ToDos" positionX="-9" positionY="45" width="128" height="178"/>
+    </elements>
 </model>

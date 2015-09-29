@@ -14,6 +14,9 @@
 		5599E12F1BBB00F5002B6DCB /* GetItDone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5599E12D1BBB00F5002B6DCB /* GetItDone.xcdatamodeld */; };
 		5599E1311BBB00F5002B6DCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5599E1301BBB00F5002B6DCB /* Assets.xcassets */; };
 		5599E1341BBB00F5002B6DCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5599E1321BBB00F5002B6DCB /* LaunchScreen.storyboard */; };
+		5599E14C1BBB0D96002B6DCB /* ToDos+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599E1491BBB0D96002B6DCB /* ToDos+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		5599E14D1BBB0D96002B6DCB /* ToDos.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599E14B1BBB0D96002B6DCB /* ToDos.m */; settings = {ASSET_TAGS = (); }; };
+		5599E1501BBB1573002B6DCB /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5599E14F1BBB1573002B6DCB /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,12 @@
 		5599E1301BBB00F5002B6DCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5599E1331BBB00F5002B6DCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5599E1351BBB00F5002B6DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5599E1481BBB0D96002B6DCB /* ToDos+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ToDos+CoreDataProperties.h"; sourceTree = "<group>"; };
+		5599E1491BBB0D96002B6DCB /* ToDos+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ToDos+CoreDataProperties.m"; sourceTree = "<group>"; };
+		5599E14A1BBB0D96002B6DCB /* ToDos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDos.h; sourceTree = "<group>"; };
+		5599E14B1BBB0D96002B6DCB /* ToDos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDos.m; sourceTree = "<group>"; };
+		5599E14E1BBB1573002B6DCB /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		5599E14F1BBB1573002B6DCB /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,15 +69,17 @@
 		5599E1201BBB00F5002B6DCB /* GetItDone */ = {
 			isa = PBXGroup;
 			children = (
+				5599E1411BBB0660002B6DCB /* Data */,
 				5599E1241BBB00F5002B6DCB /* AppDelegate.h */,
 				5599E1251BBB00F5002B6DCB /* AppDelegate.m */,
 				5599E1271BBB00F5002B6DCB /* ViewController.h */,
 				5599E1281BBB00F5002B6DCB /* ViewController.m */,
 				5599E12A1BBB00F5002B6DCB /* Main.storyboard */,
+				5599E14E1BBB1573002B6DCB /* DetailViewController.h */,
+				5599E14F1BBB1573002B6DCB /* DetailViewController.m */,
 				5599E1301BBB00F5002B6DCB /* Assets.xcassets */,
 				5599E1321BBB00F5002B6DCB /* LaunchScreen.storyboard */,
 				5599E1351BBB00F5002B6DCB /* Info.plist */,
-				5599E12D1BBB00F5002B6DCB /* GetItDone.xcdatamodeld */,
 				5599E1211BBB00F5002B6DCB /* Supporting Files */,
 			);
 			path = GetItDone;
@@ -80,6 +91,18 @@
 				5599E1221BBB00F5002B6DCB /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5599E1411BBB0660002B6DCB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5599E1481BBB0D96002B6DCB /* ToDos+CoreDataProperties.h */,
+				5599E1491BBB0D96002B6DCB /* ToDos+CoreDataProperties.m */,
+				5599E14A1BBB0D96002B6DCB /* ToDos.h */,
+				5599E14B1BBB0D96002B6DCB /* ToDos.m */,
+				5599E12D1BBB00F5002B6DCB /* GetItDone.xcdatamodeld */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,8 +177,11 @@
 			files = (
 				5599E1291BBB00F5002B6DCB /* ViewController.m in Sources */,
 				5599E12F1BBB00F5002B6DCB /* GetItDone.xcdatamodeld in Sources */,
+				5599E14C1BBB0D96002B6DCB /* ToDos+CoreDataProperties.m in Sources */,
+				5599E14D1BBB0D96002B6DCB /* ToDos.m in Sources */,
 				5599E1261BBB00F5002B6DCB /* AppDelegate.m in Sources */,
 				5599E1231BBB00F5002B6DCB /* main.m in Sources */,
+				5599E1501BBB1573002B6DCB /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +328,7 @@
 				5599E13A1BBB00F5002B6DCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
