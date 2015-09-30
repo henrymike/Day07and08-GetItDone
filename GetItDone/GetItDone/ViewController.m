@@ -46,7 +46,7 @@
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
     ToDos *selectedToDo = _toDoArray[indexPath.row];
     cell.textLabel.text = [selectedToDo toDoName];
-//    cell.detailTextLabel.text = [selectedToDo toDoDueDate];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Due Date: %@",selectedToDo.toDoDueDate];
     return cell;
 }
 

@@ -91,7 +91,6 @@
             [_prioritySegment setSelectedSegmentIndex:2];
         }
         _completedSwitch.on = [_selectedToDo.toDoCompleteDone boolValue];
-//        [NSNumber numberWithBool:_completedSwitch.isOn] = _selectedToDo.toDoCompleteDone;
         _dueDatePicker.date = _selectedToDo.toDoDueDate;
         
     } else {
