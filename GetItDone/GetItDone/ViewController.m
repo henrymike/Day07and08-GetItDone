@@ -13,7 +13,7 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) AppDelegate                       *appDelegate;
+@property (nonatomic, strong) AppDelegate  *appDelegate;
 
 @end
 
@@ -21,7 +21,16 @@
 
 #pragma mark - Interactivity Methods
 
-
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSLog(@"Row to delete: %li",indexPath.row);
+        ToDos *toDoToDelete = _toDoArray[indexPath.row];
+        [_managedObjectContext deleteObject:toDoToDelete];
+        [_appDelegate saveContext];
+        _toDoArray = [self fetchToDos];
+        [_toDoTableView reloadData];
+    }
+}
 
 #pragma mark - Core Data Methods
 
@@ -44,9 +53,15 @@
 // This takes whatever was selected from the first controller and puts it in the Label
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     DetailViewController *destController = [segue destinationViewController];
-    NSIndexPath *indexPath = [_toDoTableView indexPathForSelectedRow];
-    ToDos *selectedToDo = _toDoArray[indexPath.row];
-    destController.selectedToDo = selectedToDo;
+    if ([[segue identifier] isEqualToString:@"segueEditToDo"]) {
+        NSIndexPath *indexPath = [_toDoTableView indexPathForSelectedRow];
+        ToDos *selectedToDo = _toDoArray[indexPath.row];
+        destController.selectedToDo = selectedToDo;
+    }
+    else if ([[segue identifier] isEqualToString:@"segueAddToDo"]) {
+        destController.selectedToDo = nil;
+    }
+    
 }
 
 - (void)tempAddRecords {

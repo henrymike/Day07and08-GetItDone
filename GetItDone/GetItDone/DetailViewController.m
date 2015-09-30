@@ -21,7 +21,6 @@
 @property (nonatomic, weak)   IBOutlet UISegmentedControl       *prioritySegment;
 @property (nonatomic, weak)   IBOutlet UISwitch                 *completedSwitch;
 @property (nonatomic, weak)   IBOutlet UIDatePicker             *dueDatePicker;
-//@property (nonatomic, strong)          AppDelegate              *appDelegate;
 
 @end
 
@@ -46,10 +45,10 @@
     [self saveAndPop];
 }
 
-- (IBAction)toDoTextFieldChanged:(UITextField *)textFieldChanged {
-    ToDos *newToDo = (ToDos *)[NSEntityDescription insertNewObjectForEntityForName:@"ToDos" inManagedObjectContext:_managedObjectContext];
-    NSLog(@"Title is %@",_selectedToDoTextField.text);
-    newToDo.toDoName = _selectedToDoTextField.text;
+- (IBAction)deleteToDo:(id)sender {
+    [_managedObjectContext deleteObject:_selectedToDo];
+    [self saveAndPop];
+    NSLog(@"Delete button hit");
 }
 
 - (void)todoTextViewChanged:(UITextView *)textViewChanged {
@@ -76,28 +75,24 @@
     [super viewDidLoad];
     _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     _managedObjectContext = _appDelegate.managedObjectContext;
-    _selectedToDoTextField.text = [_selectedToDo toDoName];
-    _selectedToDoTextView.text = [_selectedToDo toDoDescription];
-//    _completedSwitch.isOn = [_selectedToDo toDoCompleteDone];
-//    _prioritySegment.text = [_selectedToDo toDoPriority];
-//    _prioritySegment.text = [(NSSTring *nameString = _selectedToDo titleForSegmentAtIndex:prioritySeg.selectedSegmentIndex)];
-    
-    // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (_selectedToDo != nil) {
+        NSLog(@"EDIT");
+        _selectedToDoTextField.text = _selectedToDo.toDoName;
+    } else {
+        NSLog(@"NEW");
+        ToDos *newToDo = (ToDos *)[NSEntityDescription insertNewObjectForEntityForName:@"ToDos" inManagedObjectContext:_managedObjectContext];
+        newToDo.dateEntered = [NSDate date];
+        _selectedToDo = newToDo;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
