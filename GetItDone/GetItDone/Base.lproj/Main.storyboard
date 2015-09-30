@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ToDo Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNq-Ng-jXX">
-                                <rect key="frame" x="33" y="143" width="533" height="30"/>
+                                <rect key="frame" x="33" y="80" width="533" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -93,7 +93,7 @@
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jfz-Tx-jwY">
-                                <rect key="frame" x="33" y="181" width="533" height="95"/>
+                                <rect key="frame" x="33" y="118" width="533" height="95"/>
                                 <color key="backgroundColor" red="0.91897021094581455" green="0.92602021614370433" blue="0.94717023173737369" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="95" id="vfJ-y7-pXg"/>
@@ -102,7 +102,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="GMW-HB-47k">
-                                <rect key="frame" x="33" y="291" width="163" height="29"/>
+                                <rect key="frame" x="33" y="228" width="163" height="29"/>
                                 <segments>
                                     <segment title="!"/>
                                     <segment title="!!"/>
@@ -113,7 +113,7 @@
                                 </connections>
                             </segmentedControl>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hnY-NF-in8">
-                                <rect key="frame" x="0.0" y="345" width="600" height="100"/>
+                                <rect key="frame" x="0.0" y="282" width="600" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="AnC-vw-6eS"/>
                                 </constraints>
@@ -125,13 +125,13 @@
                                 </connections>
                             </datePicker>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V5k-ap-yev">
-                                <rect key="frame" x="216" y="289" width="51" height="31"/>
+                                <rect key="frame" x="216" y="226" width="51" height="31"/>
                                 <connections>
                                     <action selector="toDoComplete:" destination="grj-ca-HjQ" eventType="valueChanged" id="mJy-kh-LJJ"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNI-Db-7Vq">
-                                <rect key="frame" x="273" y="294" width="75" height="21"/>
+                                <rect key="frame" x="273" y="243" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -148,7 +148,7 @@
                             <constraint firstItem="GMW-HB-47k" firstAttribute="leading" secondItem="cvE-Td-8gD" secondAttribute="leadingMargin" constant="13" id="QsW-bE-r4w"/>
                             <constraint firstItem="GMW-HB-47k" firstAttribute="top" secondItem="Jfz-Tx-jwY" secondAttribute="bottom" constant="15" id="S3z-FG-xIf"/>
                             <constraint firstItem="V5k-ap-yev" firstAttribute="top" secondItem="Jfz-Tx-jwY" secondAttribute="bottom" constant="13" id="brc-jc-TQV"/>
-                            <constraint firstItem="QNq-Ng-jXX" firstAttribute="top" secondItem="f6W-GB-zKA" secondAttribute="bottom" constant="79" id="dxr-wF-ybC"/>
+                            <constraint firstItem="QNq-Ng-jXX" firstAttribute="top" secondItem="f6W-GB-zKA" secondAttribute="bottom" constant="16" id="dxr-wF-ybC"/>
                             <constraint firstItem="QNq-Ng-jXX" firstAttribute="leading" secondItem="cvE-Td-8gD" secondAttribute="leadingMargin" constant="13" id="eMt-EW-LkU"/>
                             <constraint firstItem="V5k-ap-yev" firstAttribute="top" secondItem="QNq-Ng-jXX" secondAttribute="bottom" constant="30" id="fJ3-Hu-Xqg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jfz-Tx-jwY" secondAttribute="trailing" constant="14" id="gF0-aJ-nIR"/>
