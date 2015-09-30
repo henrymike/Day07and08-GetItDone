@@ -19,6 +19,10 @@
 
 @implementation ViewController
 
+#pragma mark - Interactivity Methods
+
+
+
 #pragma mark - Core Data Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -33,8 +37,7 @@
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
     ToDos *selectedToDo = _toDoArray[indexPath.row];
     cell.textLabel.text = [selectedToDo toDoName];
-    cell.detailTextLabel.text = [selectedToDo toDoDueDate];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    cell.detailTextLabel.text = [selectedToDo toDoDueDate];
     return cell;
 }
 
@@ -73,9 +76,16 @@
     [super viewDidLoad];
     _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     _managedObjectContext = _appDelegate.managedObjectContext;
+    _toDoArray = [[NSArray alloc] init];
 //    [self tempAddRecords];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     _toDoArray = [self fetchToDos];
-    NSLog(@"Count: %li",_toDoArray.count);
+    [_toDoTableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning {

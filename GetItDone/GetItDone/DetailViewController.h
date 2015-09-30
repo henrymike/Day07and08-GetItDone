@@ -12,6 +12,5 @@
 @interface DetailViewController : UIViewController <UITextViewDelegate>
 
 @property (nonatomic, strong) ToDos *selectedToDo;
-@property (nonatomic, strong) NSManagedObjectContext            *managedObjectContext;
 
 @end

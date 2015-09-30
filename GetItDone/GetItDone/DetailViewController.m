@@ -14,18 +14,37 @@
 
 @interface DetailViewController ()
 
-@property (nonatomic, weak) IBOutlet UITextField        *selectedToDoTextField;
-@property (nonatomic, weak) IBOutlet UITextView         *selectedToDoTextView;
-@property (nonatomic, weak) IBOutlet UISwitch           *completedSwitch;
-@property (nonatomic, weak) IBOutlet UISegmentedControl *prioritySegment;
-@property (nonatomic, weak) IBOutlet UIDatePicker       *dueDatePicker;
-//@property (nonatomic, strong) AppDelegate               *appDelegate;
+@property (nonatomic, strong)          AppDelegate              *appDelegate;
+@property (nonatomic, strong)          NSManagedObjectContext   *managedObjectContext;
+@property (nonatomic, weak)   IBOutlet UITextField              *selectedToDoTextField;
+@property (nonatomic, weak)   IBOutlet UITextView               *selectedToDoTextView;
+@property (nonatomic, weak)   IBOutlet UISegmentedControl       *prioritySegment;
+@property (nonatomic, weak)   IBOutlet UISwitch                 *completedSwitch;
+@property (nonatomic, weak)   IBOutlet UIDatePicker             *dueDatePicker;
+//@property (nonatomic, strong)          AppDelegate              *appDelegate;
 
 @end
 
 @implementation DetailViewController
 
 #pragma mark - Interactivity Methods
+
+- (void)saveAndPop {
+    [_appDelegate saveContext];
+    // The navigation controller is boss. Pop means 'get rid of' and removes views one at a time
+    [self.navigationController popViewControllerAnimated:true];
+}
+
+- (IBAction)saveButtonPressed:(id)sender {
+    _selectedToDo.toDoName = _selectedToDoTextField.text;
+    _selectedToDo.toDoDescription = _selectedToDoTextView.text;
+//    _selectedToDo.toDoPriority = [_prioritySegment titleForSegmentAtIndex:_prioritySegment.selectedSegmentIndex];
+//    _selectedToDo.toDoCompleteDone = _completedSwitch.isOn;
+    _selectedToDo.toDoDueDate = _dueDatePicker.date;
+    _selectedToDo.dateUpdated = [NSDate date];
+    _selectedToDo.userID = @"System";
+    [self saveAndPop];
+}
 
 - (IBAction)toDoTextFieldChanged:(UITextField *)textFieldChanged {
     ToDos *newToDo = (ToDos *)[NSEntityDescription insertNewObjectForEntityForName:@"ToDos" inManagedObjectContext:_managedObjectContext];
@@ -55,8 +74,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    _managedObjectContext = _appDelegate.managedObjectContext;
+    _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    _managedObjectContext = _appDelegate.managedObjectContext;
     _selectedToDoTextField.text = [_selectedToDo toDoName];
     _selectedToDoTextView.text = [_selectedToDo toDoDescription];
 //    _completedSwitch.isOn = [_selectedToDo toDoCompleteDone];

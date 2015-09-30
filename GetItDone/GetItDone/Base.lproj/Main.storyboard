@@ -21,11 +21,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="b1D-PZ-M0n" detailTextLabel="7gQ-nn-wop" style="IBUITableViewCellStyleSubtitle" id="uTH-do-GoE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="b1D-PZ-M0n" detailTextLabel="7gQ-nn-wop" style="IBUITableViewCellStyleSubtitle" id="uTH-do-GoE">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uTH-do-GoE" id="iT5-O2-dnj">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b1D-PZ-M0n">
@@ -45,7 +45,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="grj-ca-HjQ" kind="show" id="WhM-fv-bmg"/>
+                                            <segue destination="grj-ca-HjQ" kind="show" identifier="segueEditToDo" id="WhM-fv-bmg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -63,7 +63,13 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AUG-hY-Tgf" secondAttribute="bottom" id="vWE-lU-f21"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ToDo List" id="zUw-ZQ-yeH"/>
+                    <navigationItem key="navigationItem" title="ToDo List" id="zUw-ZQ-yeH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EiQ-Cc-i3m">
+                            <connections>
+                                <segue destination="grj-ca-HjQ" kind="show" identifier="segueAddToDo" id="nOj-Ge-P2m"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="toDoTableView" destination="AUG-hY-Tgf" id="W2I-5l-2no"/>
                     </connections>
@@ -72,7 +78,7 @@
             </objects>
             <point key="canvasLocation" x="1057" y="243"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--ToDo-->
         <scene sceneID="C0S-eA-MPU">
             <objects>
                 <viewController id="grj-ca-HjQ" customClass="DetailViewController" sceneMemberID="viewController">
@@ -173,6 +179,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="ToDo" id="gn8-FR-vfk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0vc-Gb-25w">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="grj-ca-HjQ" id="fEQ-wC-T5O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="completedSwitch" destination="V5k-ap-yev" id="LQZ-ev-3ME"/>
                         <outlet property="dueDatePicker" destination="hnY-NF-in8" id="skv-lp-5mV"/>
@@ -204,4 +217,7 @@
             <point key="canvasLocation" x="245" y="243"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nOj-Ge-P2m"/>
+    </inferredMetricsTieBreakers>
 </document>
