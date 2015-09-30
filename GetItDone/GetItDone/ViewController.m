@@ -46,7 +46,12 @@
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
     ToDos *selectedToDo = _toDoArray[indexPath.row];
     cell.textLabel.text = [selectedToDo toDoName];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Due Date: %@",selectedToDo.toDoDueDate];
+    
+    NSDateFormatter *myDateFormatter = [[NSDateFormatter alloc] init];
+    myDateFormatter.dateFormat = @"MMMM d, yyyy  h:mma";
+    
+    cell.detailTextLabel.text = [myDateFormatter stringFromDate:selectedToDo.toDoDueDate];
+    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     return cell;
 }
 
