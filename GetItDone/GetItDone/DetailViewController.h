@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ToDos.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <UITextViewDelegate>
 
 @property (nonatomic, strong) ToDos *selectedToDo;
+@property (nonatomic, strong) NSManagedObjectContext            *managedObjectContext;
 
 @end

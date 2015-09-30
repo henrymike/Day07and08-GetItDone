@@ -14,9 +14,6 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) AppDelegate                       *appDelegate;
-@property (nonatomic, strong) NSManagedObjectContext            *managedObjectContext;
-@property (nonatomic, strong) NSArray                           *toDoArray;
-@property (nonatomic, weak)   IBOutlet  UITableView             *toDoTableView;
 
 @end
 
@@ -36,7 +33,7 @@
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
     ToDos *selectedToDo = _toDoArray[indexPath.row];
     cell.textLabel.text = [selectedToDo toDoName];
-    cell.detailTextLabel.text = [selectedToDo toDoPriority];
+    cell.detailTextLabel.text = [selectedToDo toDoDueDate];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
@@ -54,8 +51,9 @@
     // the user will enter this through a text field; we just hardcoded this for now
     newToDo.toDoName = @"ToDo Item";
     newToDo.toDoDescription = @"Here is the description";
-    newToDo.dateEntered = [NSDate date];
+    newToDo.toDoPriority = @"!!";
     newToDo.toDoCompleteDone = false;
+    newToDo.dateEntered = [NSDate date];
     newToDo.userID = @"System";
     // this should only occur when the user hits the 'Save' button or when a new record is added
     [_appDelegate saveContext];

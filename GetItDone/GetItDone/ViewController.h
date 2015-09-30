@@ -10,6 +10,9 @@
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) NSArray                           *toDoArray;
+@property (nonatomic, weak)   IBOutlet  UITableView             *toDoTableView;
+@property (nonatomic, strong) NSManagedObjectContext            *managedObjectContext;
 
 @end
 

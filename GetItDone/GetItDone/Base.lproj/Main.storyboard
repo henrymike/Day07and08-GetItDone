@@ -84,23 +84,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ToDo Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNq-Ng-jXX">
-                                <rect key="frame" x="33" y="80" width="533" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="toDoTextFieldChanged:" destination="grj-ca-HjQ" eventType="editingDidEnd" id="wur-As-Hq1"/>
-                                </connections>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jfz-Tx-jwY">
-                                <rect key="frame" x="33" y="118" width="533" height="95"/>
-                                <color key="backgroundColor" red="0.91897021094581455" green="0.92602021614370433" blue="0.94717023173737369" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="vfJ-y7-pXg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="GMW-HB-47k">
                                 <rect key="frame" x="33" y="228" width="163" height="29"/>
                                 <segments>
@@ -112,6 +95,14 @@
                                     <action selector="prioritySet:" destination="grj-ca-HjQ" eventType="valueChanged" id="96U-PQ-BtY"/>
                                 </connections>
                             </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ToDo Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNq-Ng-jXX">
+                                <rect key="frame" x="33" y="80" width="533" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="toDoTextFieldChanged:" destination="grj-ca-HjQ" eventType="editingDidEnd" id="wur-As-Hq1"/>
+                                </connections>
+                            </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hnY-NF-in8">
                                 <rect key="frame" x="0.0" y="282" width="600" height="100"/>
                                 <constraints>
@@ -130,8 +121,20 @@
                                     <action selector="toDoComplete:" destination="grj-ca-HjQ" eventType="valueChanged" id="mJy-kh-LJJ"/>
                                 </connections>
                             </switch>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jfz-Tx-jwY">
+                                <rect key="frame" x="33" y="118" width="533" height="95"/>
+                                <color key="backgroundColor" red="0.91897021094581455" green="0.92602021614370433" blue="0.94717023173737369" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="vfJ-y7-pXg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="grj-ca-HjQ" id="YxJ-gF-SEX"/>
+                                </connections>
+                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNI-Db-7Vq">
-                                <rect key="frame" x="273" y="243" width="75" height="21"/>
+                                <rect key="frame" x="273" y="231" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -175,6 +178,7 @@
                         <outlet property="dueDatePicker" destination="hnY-NF-in8" id="skv-lp-5mV"/>
                         <outlet property="prioritySegment" destination="GMW-HB-47k" id="kLv-CZ-cNZ"/>
                         <outlet property="selectedToDoTextField" destination="QNq-Ng-jXX" id="TL4-vg-APV"/>
+                        <outlet property="selectedToDoTextView" destination="Jfz-Tx-jwY" id="jLl-3E-Plo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SdW-1M-Vbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
