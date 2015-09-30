@@ -38,7 +38,7 @@
     _selectedToDo.toDoName = _selectedToDoTextField.text;
     _selectedToDo.toDoDescription = _selectedToDoTextView.text;
 //    _selectedToDo.toDoPriority = [_prioritySegment titleForSegmentAtIndex:_prioritySegment.selectedSegmentIndex];
-//    _selectedToDo.toDoCompleteDone = _completedSwitch.isOn;
+//    _selectedToDo.toDoCompleteDone = [NSNumber numberWithBool:_completedSwitch.isOn];
     _selectedToDo.toDoDueDate = _dueDatePicker.date;
     _selectedToDo.dateUpdated = [NSDate date];
     _selectedToDo.userID = @"System";
@@ -82,6 +82,11 @@
     if (_selectedToDo != nil) {
         NSLog(@"EDIT");
         _selectedToDoTextField.text = _selectedToDo.toDoName;
+        _selectedToDoTextView.text = _selectedToDo.toDoDescription;
+//        _prioritySegment = _selectedToDo.toDoPriority;
+//        _completedSwitch.BOOL = _selectedToDo.toDoPriority;
+        _dueDatePicker.date = _selectedToDo.toDoDueDate;
+        
     } else {
         NSLog(@"NEW");
         ToDos *newToDo = (ToDos *)[NSEntityDescription insertNewObjectForEntityForName:@"ToDos" inManagedObjectContext:_managedObjectContext];
