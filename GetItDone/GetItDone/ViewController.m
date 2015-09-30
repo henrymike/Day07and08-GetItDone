@@ -75,7 +75,7 @@
     [super viewDidLoad];
     _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     _managedObjectContext = _appDelegate.managedObjectContext;
-    [self tempAddRecords];
+//    [self tempAddRecords];
     _toDoArray = [self fetchToDos];
     NSLog(@"Count: %li",_toDoArray.count);
 }

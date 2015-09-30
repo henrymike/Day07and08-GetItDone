@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="b1D-PZ-M0n" detailTextLabel="vey-7z-c8z" style="IBUITableViewCellStyleSubtitle" id="uTH-do-GoE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="b1D-PZ-M0n" detailTextLabel="7gQ-nn-wop" style="IBUITableViewCellStyleSubtitle" id="uTH-do-GoE">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uTH-do-GoE" id="iT5-O2-dnj">
@@ -35,8 +35,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vey-7z-c8z">
-                                                    <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7gQ-nn-wop">
+                                                    <rect key="frame" x="15" y="25" width="31" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -84,17 +84,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDx-cQ-AES">
-                                <rect key="frame" x="54" y="84" width="156" height="66"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ToDo Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNq-Ng-jXX">
+                                <rect key="frame" x="33" y="143" width="533" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="toDoTextFieldChanged:" destination="grj-ca-HjQ" eventType="editingDidEnd" id="wur-As-Hq1"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jfz-Tx-jwY">
+                                <rect key="frame" x="33" y="181" width="533" height="95"/>
+                                <color key="backgroundColor" red="0.91897021094581455" green="0.92602021614370433" blue="0.94717023173737369" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="vfJ-y7-pXg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="GMW-HB-47k">
+                                <rect key="frame" x="33" y="291" width="163" height="29"/>
+                                <segments>
+                                    <segment title="!"/>
+                                    <segment title="!!"/>
+                                    <segment title="!!!"/>
+                                </segments>
+                                <connections>
+                                    <action selector="prioritySet:" destination="grj-ca-HjQ" eventType="valueChanged" id="96U-PQ-BtY"/>
+                                </connections>
+                            </segmentedControl>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hnY-NF-in8">
+                                <rect key="frame" x="0.0" y="345" width="600" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="AnC-vw-6eS"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="465249178.17925698">
+                                    <!--2015-09-29 19:52:58 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dueDateChanged:" destination="grj-ca-HjQ" eventType="valueChanged" id="obh-qq-YUU"/>
+                                </connections>
+                            </datePicker>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V5k-ap-yev">
+                                <rect key="frame" x="216" y="289" width="51" height="31"/>
+                                <connections>
+                                    <action selector="toDoComplete:" destination="grj-ca-HjQ" eventType="valueChanged" id="mJy-kh-LJJ"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNI-Db-7Vq">
+                                <rect key="frame" x="273" y="294" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="QNq-Ng-jXX" secondAttribute="trailing" constant="14" id="1M5-s0-TdA"/>
+                            <constraint firstItem="QNq-Ng-jXX" firstAttribute="leading" secondItem="cvE-Td-8gD" secondAttribute="leadingMargin" constant="13" id="1fK-Pu-lsC"/>
+                            <constraint firstItem="hnY-NF-in8" firstAttribute="leading" secondItem="cvE-Td-8gD" secondAttribute="leadingMargin" constant="-20" id="6HY-L4-CsV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hnY-NF-in8" secondAttribute="trailing" constant="-20" id="DZp-Rg-eJJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QNq-Ng-jXX" secondAttribute="trailing" constant="14" id="GoK-cS-JPR"/>
+                            <constraint firstItem="hnY-NF-in8" firstAttribute="top" secondItem="GMW-HB-47k" secondAttribute="bottom" constant="26" id="NNn-Q0-rNm"/>
+                            <constraint firstItem="GMW-HB-47k" firstAttribute="leading" secondItem="cvE-Td-8gD" secondAttribute="leadingMargin" constant="13" id="QsW-bE-r4w"/>
+                            <constraint firstItem="GMW-HB-47k" firstAttribute="top" secondItem="Jfz-Tx-jwY" secondAttribute="bottom" constant="15" id="S3z-FG-xIf"/>
+                            <constraint firstItem="V5k-ap-yev" firstAttribute="top" secondItem="Jfz-Tx-jwY" secondAttribute="bottom" constant="13" id="brc-jc-TQV"/>
+                            <constraint firstItem="QNq-Ng-jXX" firstAttribute="top" secondItem="f6W-GB-zKA" secondAttribute="bottom" constant="79" id="dxr-wF-ybC"/>
+                            <constraint firstItem="QNq-Ng-jXX" firstAttribute="leading" secondItem="cvE-Td-8gD" secondAttribute="leadingMargin" constant="13" id="eMt-EW-LkU"/>
+                            <constraint firstItem="V5k-ap-yev" firstAttribute="top" secondItem="QNq-Ng-jXX" secondAttribute="bottom" constant="30" id="fJ3-Hu-Xqg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jfz-Tx-jwY" secondAttribute="trailing" constant="14" id="gF0-aJ-nIR"/>
+                            <constraint firstItem="mNI-Db-7Vq" firstAttribute="top" secondItem="QNq-Ng-jXX" secondAttribute="bottom" constant="35" id="jV2-9X-Qjb"/>
+                            <constraint firstItem="Jfz-Tx-jwY" firstAttribute="leading" secondItem="cvE-Td-8gD" secondAttribute="leadingMargin" constant="13" id="kxh-5j-Ot9"/>
+                            <constraint firstItem="Jfz-Tx-jwY" firstAttribute="top" secondItem="QNq-Ng-jXX" secondAttribute="bottom" constant="8" id="mWe-MH-Sec"/>
+                            <constraint firstItem="mNI-Db-7Vq" firstAttribute="top" secondItem="Jfz-Tx-jwY" secondAttribute="bottom" constant="18" id="p2o-eV-4FU"/>
+                            <constraint firstItem="GMW-HB-47k" firstAttribute="top" secondItem="QNq-Ng-jXX" secondAttribute="bottom" constant="32" id="s6e-q4-lh2"/>
+                            <constraint firstItem="mNI-Db-7Vq" firstAttribute="leading" secondItem="V5k-ap-yev" secondAttribute="trailing" constant="8" id="xkj-Dt-mhq"/>
+                            <constraint firstItem="V5k-ap-yev" firstAttribute="leading" secondItem="GMW-HB-47k" secondAttribute="trailing" constant="20" id="zwj-7q-3Bi"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="GoK-cS-JPR"/>
+                                <exclude reference="eMt-EW-LkU"/>
+                                <exclude reference="s6e-q4-lh2"/>
+                                <exclude reference="fJ3-Hu-Xqg"/>
+                                <exclude reference="jV2-9X-Qjb"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="selectedToDoLabel" destination="XDx-cQ-AES" id="IIC-2T-lWx"/>
+                        <outlet property="completedSwitch" destination="V5k-ap-yev" id="LQZ-ev-3ME"/>
+                        <outlet property="dueDatePicker" destination="hnY-NF-in8" id="skv-lp-5mV"/>
+                        <outlet property="prioritySegment" destination="GMW-HB-47k" id="kLv-CZ-cNZ"/>
+                        <outlet property="selectedToDoTextField" destination="QNq-Ng-jXX" id="TL4-vg-APV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SdW-1M-Vbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
