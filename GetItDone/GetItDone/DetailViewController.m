@@ -37,8 +37,8 @@
 - (IBAction)saveButtonPressed:(id)sender {
     _selectedToDo.toDoName = _selectedToDoTextField.text;
     _selectedToDo.toDoDescription = _selectedToDoTextView.text;
-//    _selectedToDo.toDoPriority = [_prioritySegment titleForSegmentAtIndex:_prioritySegment.selectedSegmentIndex];
-//    _selectedToDo.toDoCompleteDone = [NSNumber numberWithBool:_completedSwitch.isOn];
+    _selectedToDo.toDoPriority = [_prioritySegment titleForSegmentAtIndex:_prioritySegment.selectedSegmentIndex];
+    _selectedToDo.toDoCompleteDone = [NSNumber numberWithBool:_completedSwitch.isOn];
     _selectedToDo.toDoDueDate = _dueDatePicker.date;
     _selectedToDo.dateUpdated = [NSDate date];
     _selectedToDo.userID = @"System";
@@ -83,8 +83,15 @@
         NSLog(@"EDIT");
         _selectedToDoTextField.text = _selectedToDo.toDoName;
         _selectedToDoTextView.text = _selectedToDo.toDoDescription;
-//        _prioritySegment = _selectedToDo.toDoPriority;
-//        _completedSwitch.BOOL = _selectedToDo.toDoPriority;
+        if ([_selectedToDo.toDoPriority isEqualToString:@"!"]) {
+            [_prioritySegment setSelectedSegmentIndex:0];
+        } else if ([_selectedToDo.toDoPriority isEqualToString:@"!!"]) {
+            [_prioritySegment setSelectedSegmentIndex:1];
+        } else if ([_selectedToDo.toDoPriority isEqualToString:@"!!!"]) {
+            [_prioritySegment setSelectedSegmentIndex:2];
+        }
+        _completedSwitch.on = [_selectedToDo.toDoCompleteDone boolValue];
+//        [NSNumber numberWithBool:_completedSwitch.isOn] = _selectedToDo.toDoCompleteDone;
         _dueDatePicker.date = _selectedToDo.toDoDueDate;
         
     } else {
